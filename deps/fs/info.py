@@ -9,8 +9,7 @@ import typing
 from typing import cast
 from copy import deepcopy
 
-import six
-
+from . import six
 from .path import join
 from .enums import ResourceType
 from .errors import MissingInfoNamespace

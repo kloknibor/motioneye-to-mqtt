@@ -11,8 +11,7 @@ import typing
 from collections import OrderedDict
 from threading import RLock
 
-import six
-
+from . import six
 from . import errors
 from .base import FS
 from .enums import ResourceType, Seek

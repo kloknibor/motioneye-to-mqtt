@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 import io
 
-import smb.smb_structs
+from .smb import smb_structs
 
 from .. import errors
 from ..path import join

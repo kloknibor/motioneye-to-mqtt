@@ -1,11 +1,14 @@
 # imports
-import paho.mqtt.publish as mqtt_pub
-import deps.fs.opener.smbfs
+import deps.paho.mqtt.publish as mqtt_pub
+
 import deps.fs as fs
 from deps.fs.osfs import OSFS
 from deps.fs.walk import Walker
 import sys
 import configparser
+
+#dummy imports
+import deps.fs.opener.smbfs
 
 # import config vars
 config = configparser.ConfigParser()
@@ -37,6 +40,7 @@ SMB_NAME_PORT = int(config.get('SAMBA','SMB_NAME_PORT'))
 SMB_DIRECT_TCP = config.get('SAMBA','SMB_DIRECT_TCP')
 SMB_SHARE = config.get('SAMBA','SMB_SHARE')
 SMB_FOLDER = config.get('SAMBA','SMB_FOLDER')
+
 
 def publish_motion_on():
     mqtt_pub.single(MQTT_TOPIC_MOTION, payload="ON", retain=True, hostname=MQTT_HOST, port=MQTT_PORT,

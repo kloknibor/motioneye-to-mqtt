@@ -5,7 +5,7 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import re
-import six
+from .. import six
 
 from ..path import relpath
 

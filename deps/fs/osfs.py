@@ -20,8 +20,7 @@ import sys
 import tempfile
 import typing
 
-import six
-
+from . import six
 try:
     from os import scandir
 except ImportError:

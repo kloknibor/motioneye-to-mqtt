@@ -5,7 +5,7 @@
 import abc
 import typing
 
-import six
+from .. import six
 
 if typing.TYPE_CHECKING:
     from typing import List, Text

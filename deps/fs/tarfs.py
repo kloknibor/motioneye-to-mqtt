@@ -10,8 +10,7 @@ import typing
 from collections import OrderedDict
 from typing import cast, IO
 
-import six
-
+from . import six
 from . import errors
 from .base import FS
 from .compress import write_tar

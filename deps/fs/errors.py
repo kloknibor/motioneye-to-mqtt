@@ -14,8 +14,8 @@ from __future__ import print_function
 import functools
 import typing
 
-import six
-from six import text_type
+from . import six
+from .six import text_type
 
 if typing.TYPE_CHECKING:
     from typing import Optional, Text

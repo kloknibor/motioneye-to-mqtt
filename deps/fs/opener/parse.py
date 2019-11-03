@@ -9,8 +9,8 @@ import collections
 import re
 import typing
 
-import six
-from six.moves.urllib.parse import parse_qs, unquote
+from .. import six
+from ..six.moves.urllib.parse import parse_qs, unquote
 
 from .errors import ParseError
 

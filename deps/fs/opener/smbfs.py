@@ -6,7 +6,7 @@ from __future__ import absolute_import
 
 import configparser
 
-import six
+from .. import six
 
 from .base import Opener
 from .registry import registry

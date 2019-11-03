@@ -8,8 +8,7 @@ import typing
 import zipfile
 from datetime import datetime
 
-import six
-
+from . import six
 from . import errors
 from .base import FS
 from .compress import write_zip

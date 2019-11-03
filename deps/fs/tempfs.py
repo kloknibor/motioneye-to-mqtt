@@ -16,8 +16,7 @@ import shutil
 import tempfile
 import typing
 
-import six
-
+from . import six
 from . import errors
 from .osfs import OSFS
 

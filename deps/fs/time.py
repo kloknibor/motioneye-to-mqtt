@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 from calendar import timegm
 from datetime import datetime
-from pytz import UTC, timezone
+from .pytz import UTC, timezone
 
 
 utcfromtimestamp = datetime.utcfromtimestamp

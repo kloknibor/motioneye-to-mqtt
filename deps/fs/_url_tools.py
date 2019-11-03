@@ -1,5 +1,5 @@
 import re
-import six
+from . import six 
 import platform
 import typing
 

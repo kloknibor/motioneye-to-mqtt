@@ -6,8 +6,7 @@ from __future__ import unicode_literals
 
 import typing
 
-import six
-
+from . import six
 from .wrapfs import WrapFS
 from .path import abspath, join, normpath, relpath
 

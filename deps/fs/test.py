@@ -28,8 +28,7 @@ from fs.opener import open_fs
 from fs.subfs import ClosingSubFS, SubFS
 
 import pytz
-import six
-from six import text_type
+from . import sixfrom six import text_type
 
 if six.PY2:
     import collections as collections_abc

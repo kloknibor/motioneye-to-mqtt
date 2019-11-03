@@ -10,7 +10,7 @@ import sys
 import typing
 from contextlib import contextmanager
 
-from six import reraise
+from .six import reraise
 
 from . import errors
 

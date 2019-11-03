@@ -7,10 +7,12 @@ from __future__ import unicode_literals
 import socket
 import itertools
 
-import nmb.NetBIOS
-import smb.SMBConnection
-import smb.smb_constants
-import smb.security_descriptors
+from .nmb import NetBIOS
+from .smb import SMBConnection
+from .smb import smb_constants
+from .smb import security_descriptors
+from . import nmb
+from . import smb
 
 from .. import errors
 from ..base import FS

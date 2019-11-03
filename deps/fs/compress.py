@@ -14,8 +14,7 @@ import typing
 import zipfile
 from datetime import datetime
 
-import six
-
+from . import six
 from .enums import ResourceType
 from .path import relpath
 from .time import datetime_to_epoch

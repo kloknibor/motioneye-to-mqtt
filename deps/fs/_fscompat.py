@@ -1,5 +1,4 @@
-import six
-
+from . import six
 try:
     from os import fsencode, fsdecode
 except ImportError:

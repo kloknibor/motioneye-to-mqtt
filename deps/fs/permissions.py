@@ -7,8 +7,7 @@ from __future__ import unicode_literals
 import typing
 from typing import Iterable
 
-import six
-
+from . import six
 from ._typing import Text
 
 

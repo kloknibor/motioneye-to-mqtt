@@ -19,8 +19,7 @@ from contextlib import closing
 from functools import partial, wraps
 import warnings
 
-import six
-
+from . import six
 from . import copy, errors, fsencode, iotools, move, tools, walk, wildcard
 from .glob import BoundGlobber
 from .mode import validate_open_mode

@@ -5,8 +5,7 @@ from __future__ import unicode_literals
 
 import typing
 
-import six
-
+from . import six
 from . import errors
 from .base import FS
 from .copy import copy_file, copy_dir

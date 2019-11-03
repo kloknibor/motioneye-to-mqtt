@@ -3,8 +3,7 @@ Typing objects missing from Python3.5.1
 
 """
 import sys
-import six
-
+from . import six
 
 _PY = sys.version_info
 

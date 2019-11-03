@@ -10,8 +10,7 @@ from __future__ import unicode_literals
 
 import typing
 
-import six
-
+from . import six
 from ._typing import Text
 
 
