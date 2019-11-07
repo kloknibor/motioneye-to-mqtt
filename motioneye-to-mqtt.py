@@ -6,6 +6,7 @@ from fs.osfs import OSFS
 from fs.walk import Walker
 import sys
 import configparser
+import time
 
 #retrieve args
 if len(sys.argv) >= 3:
@@ -32,6 +33,7 @@ MQTT_TOPIC_MOTION = config.get('MQTT','MQTT_TOPIC_MOTION')
 MESSAGE_MOTION = config.get('GENERAL','MESSAGE_MOTION')
 PICTURE_MOTION = config.get('GENERAL','PICTURE_MOTION')
 VIDEO_MOTION = config.get('GENERAL','VIDEO_MOTION')
+WAIT = 1
 
 #[OSFS]
 CAMERA_FOLDER = config.get('OSFS','CAMERA_FOLDER')
@@ -117,13 +119,15 @@ if __name__ == "__main__":
         MQTT_TOPIC_SNAPSHOT = sys.argv[4]
     if len(sys.argv) >= 6:
         MQTT_TOPIC_MOTION = sys.argv[5]
-
+    if len(sys.argv) >= 7:
+        WAIT = sys.argv[6]
     try:
         # main program
         if sys.argv[1] == "ON":
             if MESSAGE_MOTION:
                 publish_motion_on()
             if PICTURE_MOTION:
+                time.sleep(WAIT)
                 fs = create_root_filesystem()
                 newest_folder = find_newest_folder_fs(fs=fs)
                 newest_image = find_newest_file_fs(path=newest_folder, fs=fs)
