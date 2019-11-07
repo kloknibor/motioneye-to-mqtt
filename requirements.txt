@@ -1,0 +1,8 @@
+appdirs
+paho-mqtt
+pyasn1
+pysmb
+pytz
+setuptools
+six
+fs.smbfs

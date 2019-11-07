@@ -1,9 +1,9 @@
 # imports
 import paho.mqtt.publish as mqtt_pub
-import deps.fs.opener.smbfs
-import deps.fs as fs
-from deps.fs.osfs import OSFS
-from deps.fs.walk import Walker
+import fs.opener.smbfs
+import fs as fs
+from fs.osfs import OSFS
+from fs.walk import Walker
 import sys
 import configparser
 
