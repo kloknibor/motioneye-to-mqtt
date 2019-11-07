@@ -7,6 +7,18 @@ from fs.walk import Walker
 import sys
 import configparser
 
+#retrieve args
+if len(sys.argv) >= 3:
+    CONFIG_LOCATION = sys.argv[2]
+else:
+    print("not enough args for hass addon")
+if len(sys.argv) >= 4:
+    SMB_FOLDER = sys.argv[3]
+if len(sys.argv) >= 5:
+    MQTT_TOPIC_SNAPSHOT = sys.argv[4]
+if len(sys.argv) >= 6:
+    MQTT_TOPIC_MOTION = sys.argv[5]
+
 # import config vars
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -102,13 +114,6 @@ def create_root_filesystem():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 3:
-        SMB_FOLDER = sys.argv[2]
-    if len(sys.argv) >= 4:
-        MQTT_TOPIC_SNAPSHOT = sys.argv[3]
-    if len(sys.argv) >= 5:
-        MQTT_TOPIC_MOTION = sys.argv[4]
-
     try:
         # main program
         if sys.argv[1] == "ON":
