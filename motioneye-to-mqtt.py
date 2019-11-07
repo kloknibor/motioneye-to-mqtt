@@ -52,6 +52,7 @@ def publish_file_fs(file_to_publish="", topic="snapshot", fs=""):
     # open the image
     byte_file = fs.readbytes(file_to_publish)
     # publish the image to the broker
+    print("publishing : " + file_to_publish + " to : " + MQTT_TOPIC_SNAPSHOT)
     mqtt_pub.single(MQTT_TOPIC_SNAPSHOT + topic, payload=byte_file, retain=True, hostname=MQTT_HOST, port=MQTT_PORT,
                     auth={'username': MQTT_USERNAME, 'password': MQTT_PASSWORD})
 
@@ -67,7 +68,7 @@ def find_newest_folder_fs(fs):
             folders[path] = info.modified.strftime("%Y%m%d%H%M%S")
 
     newest_folder_fs = (sorted(folders.items(),key=lambda x: x[1],reverse=True)[0][0])
-    print("newest folder: " + newest_folder_fs)
+    #print("newest folder: " + newest_folder_fs)
     return newest_folder_fs
 
 
@@ -92,7 +93,7 @@ def create_root_filesystem():
     if SAMBA:
         connection_place = "smb://" + SMB_USERNAME + ":" + SMB_PASSWD + "@" + SMB_HOST + "/" + SMB_SHARE + "/" + SMB_FOLDER
         fs_smb = fs.open_fs(connection_place)
-        print(connection_place)
+        print("Connecting to :" + connection_place)
         return fs_smb
     # act like it is an local filesystem
     else:
@@ -101,18 +102,12 @@ def create_root_filesystem():
 
 
 if __name__ == "__main__":
-    for i in sys.argv:
-        print(i)
-
     if len(sys.argv) >= 3:
         SMB_FOLDER = sys.argv[2]
-        print(sys.argv[2])
     if len(sys.argv) >= 4:
         MQTT_TOPIC_SNAPSHOT = sys.argv[3]
-        print(sys.argv[3])
     if len(sys.argv) >= 5:
         MQTT_TOPIC_MOTION = sys.argv[4]
-        print(sys.argv[4])
 
     try:
         # main program
@@ -123,7 +118,7 @@ if __name__ == "__main__":
                 fs = create_root_filesystem()
                 newest_folder = find_newest_folder_fs(fs=fs)
                 newest_image = find_newest_file_fs(path=newest_folder, fs=fs)
-                print(newest_image)
+                #print(newest_image)
                 publish_file_fs(file_to_publish=newest_image, topic="snapshot", fs=fs)
 
         if sys.argv[1] == "OFF":
