@@ -90,14 +90,9 @@ def find_newest_file_fs(path="", file_type="*.jpg", fs=""):
 def create_root_filesystem():
     #use samba filesystem
     if SAMBA:
-        print("smb://" + SMB_USERNAME + ":" + SMB_PASSWD + "@" + SMB_HOST + "/" + SMB_SHARE)
-        #test_fs =  fs.open_fs("smb://" + SMB_PASSWD + ":" + SMB_USERNAME + "@" + SMB_HOST + "/" + SMB_SHARE + "/" + SMB_FOLDER)
-        fs_smb = fs.open_fs("smb://camera_hassio:3hGhURu4nVMesP@192.168.1.1/Cameras/Camera2")
-
-        #fs_smb = fs.smbfs.SMBFS(
-        #    '192.168.1.1', username='camera_hassio', passwd='3hGhURu4nVMesP', timeout=15,
-        #    port=139, name_port=137, direct_tcp=False
-        #)
+        connection_place = "smb://" + SMB_USERNAME + ":" + SMB_PASSWD + "@" + SMB_HOST + "/" + SMB_SHARE + "/" + SMB_FOLDER
+        fs_smb = fs.open_fs(connection_place)
+        print(connection_place)
         return fs_smb
     # act like it is an local filesystem
     else:
